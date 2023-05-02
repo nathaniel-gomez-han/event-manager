@@ -1,0 +1,29 @@
+<?php
+$root = "/event-manager";
+?>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand h1 mb-0" href="index.php">
+                <img src="img/rocktane-logo.svg" alt="Rocktane Logo" height="50" class="d-inline-block align-text-bottom">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link <?php if($_SERVER['SCRIPT_NAME'] == "$root/index.php") { ?> active" aria-current="page <?php } ?>" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php if($_SERVER['SCRIPT_NAME'] == "$root/about.php") { ?> active" aria-current="page <?php } ?>" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php if($_SERVER['SCRIPT_NAME'] == "$root/tour.php") { ?> active" aria-current="page <?php } ?>" href="#">Tour</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php if($_SERVER['SCRIPT_NAME'] == "$root/contact.php") { ?> active" aria-current="page <?php } ?>" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>

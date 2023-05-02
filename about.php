@@ -7,6 +7,7 @@ if (isset($_SESSION['isUserValid'])) {
     $isUserValid = $_SESSION['isUserValid'];
 }
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +15,7 @@ if (isset($_SESSION['isUserValid'])) {
         <meta charset="UTF-8">
         <!--
             Author: Nathaniel Gomez-Han
+            Date: May 1 2023
         -->
         <meta http-equiv="X-UA-Compatible" content ="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +28,7 @@ if (isset($_SESSION['isUserValid'])) {
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
-    <body class="d-flex flex-column min-vh-100">
+    <body class="d-flex flex-column">
     <!-- Navbar -->
     <?php include 'inc/navbar.php'; ?>
 
