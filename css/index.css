@@ -1,0 +1,53 @@
+.splash {
+    background: no-repeat bottom/cover url('../img/splash.gif');
+    min-height: 550px;
+    color: var(--theme-white);
+    text-shadow: 2px 2px 4px black;
+}
+@media (min-width: 992px) {
+    .splash {
+        min-height: 620px;
+    }
+}
+@media (min-width: 1200px) {
+    .splash {
+        min-height: 650px;
+    }
+}
+
+h1.event-title, .next-event-label {
+    font-family: "gin", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.event-title span {
+    display: block;
+}
+@media (min-width: 576px) {
+    .event-title-the {
+        margin-bottom: -0.3em !important;
+    }
+}
+
+.next-event-info {
+    background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,0.8) 100%);
+
+    font-family: "loretta-variable", sans-serif;
+    font-variation-settings: "wght" 700;
+    color: var(--theme-white);
+
+    /* Notched corners */
+    border-radius: 0 0 1em 1em;
+    --notchSize: 1em;
+    clip-path:
+        polygon(
+            0% var(--notchSize),
+            var(--notchSize) 0%,
+            calc(100% - var(--notchSize)) 0%,
+            100% var(--notchSize),
+            100% calc(100% - var(--notchSize)),
+            calc(100% - var(--notchSize)) 100%,
+            var(--notchSize) 100%,
+            0% calc(100% - var(--notchSize))
+        );
+}

@@ -24,16 +24,42 @@ if (isset($_SESSION['isUserValid'])) {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
         <link rel="manifest" href="/manifest.webmanifest">
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.typekit.net/ukm4sma.css"><!-- Adobe Fonts (Gin) -->
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/index.css">
     </head>
     <body class="d-flex flex-column min-vh-100">
     <!-- Navbar -->
     <?php include 'inc/navbar.php'; ?>
 
     <!-- Page Content -->
-    <main class="flex-grow-1">
-        <h1>Event Manager</h1>
-        <h2>Upcoming Events:</h2>
+    <main class="flex-grow-1 container-fluid h-100 p-0">
+
+        <div class="splash container-lg pb-4 text-center">
+            <div class="flex-column next-event-info col-lg-10 mx-auto p-2 pt-4">
+                <h1 class="event-title">
+                    <span class="event-title-the display-4">The</span>
+                    <span class="display-1">Ride or Die Tour</span>
+                </h1>
+                <section class="flex-column py-4">
+                    <div class="flex-row">
+                        <h2 class="next-event-label">Next Stop:</h2>
+                    </div>
+                    <div class="d-flex flex-row p-2 px-sm-4 justify-content-center">
+                        <div class="d-flex flex-column col-sm-6 col-xl-5 justify-content-center">
+                            <p class="next-event-date display-1">06.13.23</p>
+                        </div>
+                        <div class="d-flex flex-column col-sm-6 col-xl-5 justify-content-around">
+                            <p class="next-event-city h3">Place, Region</p>
+                            <p class="next-event-venue h3">Metropolitan Venue Center</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-outline-primary btn-lg w-auto mx-auto mt-4">Buy Tickets</button>
+                </section>
+            </div>
+        </div>
+        <div class="container-fluid">
+        </div>
 
     </main>
 

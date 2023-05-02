@@ -1,8 +1,49 @@
+:root {
+    /* Color Pallet */
+    --theme-black: #171717;
+    --theme-white: #F9F9F9;
+    --theme-primary: #DF5050;
+
+    --bs-border-radius: 0;
+}
+
+/* Utility */
 .hidden {
     position: absolute;
     left: -9999px;
 }
 
-.navbar-toggler {
-    border-radius: 0;
+/* General */
+body {
+    background: black;
+    background: radial-gradient(43% 120% at 50% 90%, #383838, black);
+}
+
+/* Navbar */
+nav.navbar {
+    background: var(--theme-black) !important;
+    background: radial-gradient(90% 100px at 60% -5%, #252525, var(--theme-black)) !important;
+}
+.navbar-brand img {
+    height: 30px;
+}
+.nav-link {
+    --bs-nav-link-hover-color: var(--theme-primary);
+}
+.navbar-dark {
+    --bs-navbar-toggler-border-color: var(--theme-white)
+}
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 var(--bs-navbar-toggler-focus-width) var(--theme-white);
+}
+
+.btn {
+    --bs-btn-font-family: "gin", serif;
+    --bs-btn-color: var(--theme-white);
+    --bs-btn-border-color: var(--theme-primary);
+    --bs-btn-border-width: 3px;
+    --bs-btn-border-radius: 0;
+    --bs-btn-hover-bg: var(--theme-primary);
+    --bs-btn-hover-color: var(--theme-white);
+    --bs-btn-hover-border-color: var(--theme-white);
 }
