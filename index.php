@@ -36,29 +36,99 @@ if (isset($_SESSION['isUserValid'])) {
     <main class="flex-grow-1 container-fluid h-100 p-0">
 
         <div class="splash container-lg pb-4 text-center">
-            <div class="flex-column next-event-info col-lg-10 mx-auto p-2 pt-4">
-                <h1 class="event-title">
+            <div class="flex-column next-event-info col-lg-10 mx-auto p-4">
+                <h1 class="event-title mb-4">
                     <span class="event-title-the display-4">The</span>
                     <span class="display-1">Ride or Die Tour</span>
                 </h1>
-                <section class="flex-column py-4">
+                <section class="flex-column my-4">
                     <div class="flex-row">
                         <h2 class="next-event-label">Next Stop:</h2>
                     </div>
-                    <div class="d-flex flex-row p-2 px-sm-4 justify-content-center">
-                        <div class="d-flex flex-column col-sm-6 col-xl-5 justify-content-center">
-                            <p class="next-event-date display-1">06.13.23</p>
+                    <div class="d-flex flex-row column-gap-4 my-4 px-sm-4 justify-content-center">
+                        <div class="d-flex flex-column col col-xl-5 justify-content-center">
+                            <p class="next-event-date display-1">06.17.23</p>
                         </div>
-                        <div class="d-flex flex-column col-sm-6 col-xl-5 justify-content-around">
-                            <p class="next-event-city h3">Place, Region</p>
+                        <div class="d-flex flex-column col col-xl-5 justify-content-around">
+                            <p class="next-event-city h3">City, Region</p>
                             <p class="next-event-venue h3">Metropolitan Venue Center</p>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-outline-primary btn-lg w-auto mx-auto mt-4">Buy Tickets</button>
+                    <button type="button" class="btn btn-outline-primary btn-lg w-auto mx-auto">Buy Tickets</button>
                 </section>
             </div>
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid pt-2 theme-bg-dark">
+            <section class="container-lg pb-4 upcoming-event-dates">
+                <h2>Upcoming Tour Dates:</h2>
+                <hr class="header-hr">
+                <div class="d-flex flex-column px-4">
+                    <div class="d-flex flex-row">
+                        <div class="d-flex flex-column col col-md-4 col-event-details justify-content-center">
+                            <div>SAT, JUN 17, 2023</div>
+                            <div>Metropolitan Venue Center</div>
+                        </div>
+                        <div class="d-flex flex-column col col-md-4 col-event-location justify-content-center text-center">
+                            <div>City, Region</div>
+                        </div>
+                        <div class="d-flex flex-column col col-md-4 col-event-links justify-content-center">
+                            <div class="d-flex flex-row column-gap-2 justify-content-end align-items-center">
+                                <div class="sold-out-tag">Sold out!</div>
+                                <button type="button" class="btn btn-primary btn-sm w-auto">More Info</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="d-flex flex-row">
+                        <div class="d-flex flex-column col col-md-4 col-event-details justify-content-center">
+                            <div>SAT, JUN 17, 2023</div>
+                            <div>Metropolitan Venue Center</div>
+                        </div>
+                        <div class="d-flex flex-column col col-md-4 col-event-location justify-content-center text-center">
+                            <div>City, Region</div>
+                        </div>
+                        <div class="d-flex flex-column col col-md-4 col-event-links justify-content-center">
+                            <div class="d-flex flex-row column-gap-2 justify-content-end align-items-center">
+                                <div class="sold-out-tag">Sold out!</div>
+                                <button type="button" class="btn btn-primary btn-sm w-auto">More Info</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="d-flex flex-row">
+                        <div class="d-flex flex-column col col-md-4 col-event-details justify-content-center">
+                            <div>SAT, JUN 17, 2023</div>
+                            <div>Metropolitan Venue Center</div>
+                        </div>
+                        <div class="d-flex flex-column col col-md-4 col-event-location justify-content-center text-center">
+                            <div>City, Region</div>
+                        </div>
+                        <div class="d-flex flex-column col col-md-4 col-event-links justify-content-center">
+                            <div class="d-flex flex-row column-gap-2 justify-content-end align-items-center">
+                                <div class="sold-out-tag">Sold out!</div>
+                                <button type="button" class="btn btn-primary btn-sm w-auto">More Info</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="d-flex flex-row">
+                        <div class="d-flex flex-column col col-md-4 col-event-details justify-content-center">
+                            <div>SAT, JUN 17, 2023</div>
+                            <div>Metropolitan Venue Center</div>
+                        </div>
+                        <div class="d-flex flex-column col col-md-4 col-event-location justify-content-center text-center">
+                            <div>City, Region</div>
+                        </div>
+                        <div class="d-flex flex-column col col-md-4 col-event-links justify-content-center">
+                            <div class="d-flex flex-row column-gap-2 justify-content-end align-items-center">
+                                <div class="sold-out-tag">Sold out!</div>
+                                <button type="button" class="btn btn-primary btn-sm w-auto">More Info</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </section>
         </div>
 
     </main>
