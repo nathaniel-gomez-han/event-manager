@@ -29,9 +29,34 @@ try {
     handleStatementException($e, $statement);
 }
 
+$nextStopHTML = "";
 $upcomingTourDatesHTML = "";
 
 if ($row = $statement->fetch()) {
+    $formattedDate = date('M/d/y', strtotime($row['date']));
+    $venue = $row['venue'];
+    $city = $row['city'];
+    $region = $row['region'];
+
+    $nextStopHTML = <<<END
+        <section class="flex-column my-4">
+            <div class="flex-row">
+                <h2 class="next-event-label">Next Stop:</h2>
+            </div>
+            <div class="d-flex flex-column flex-md-row column-gap-4 my-4 px-md-4 justify-content-center">
+                <div class="d-flex flex-column col-md-6 col-xl-5 justify-content-center">
+                    <p class="next-event-date display-1">$formattedDate</p>
+                </div>
+                <div class="d-flex flex-column col-md-6 col-xl-5 justify-content-around">
+                    <p class="next-event-city h3">$city, $region</p>
+                    <p class="next-event-venue h3">$venue</p>
+                </div>
+            </div>
+            <button type="button" class="btn btn-outline-primary btn-lg w-auto mx-auto">Buy Tickets</button>
+        </section>
+    END;
+
+
     do {
         $formattedDate = strtoupper(date('D, M j, Y', strtotime($row['date'])));
         $venue = $row['venue'];
@@ -40,14 +65,14 @@ if ($row = $statement->fetch()) {
         $soldOutTagHTML = $row['is_sold_out'] ? '<div class="text-center text-sm-end sold-out-tag">Sold out!</div>' : '';
         $upcomingTourDatesHTML .= <<<END
             <div class="d-flex flex-column flex-sm-row flex-wrap row-gap-3">
-                <div class="d-flex flex-column col-12 col-sm-4 justify-content-center text-center text-sm-start col-event-details">
+                <div class="d-flex flex-column col-sm-4 justify-content-center text-center text-sm-start col-event-details">
                     <div>$formattedDate</div>
                     <div>$venue</div>
                 </div>
-                <div class="d-flex flex-column col-12 col-sm-4 justify-content-center text-center col-event-location">
+                <div class="d-flex flex-column col-sm-4 justify-content-center text-center col-event-location">
                     <div>$city, $region</div>
                 </div>
-                <div class="d-flex flex-column col-12 col-sm-4 justify-content-center col-event-links">
+                <div class="d-flex flex-column col-sm-4 justify-content-center col-event-links">
                     <div class="d-flex flex-column flex-sm-row-reverse column-gap-2 row-gap-1 justify-content-center justify-content-sm-start align-items-center">
                        <button type="button" class="btn btn-primary btn-sm">More Info</button>
                        $soldOutTagHTML
@@ -99,21 +124,7 @@ if ($row = $statement->fetch()) {
                     <span class="event-title-the display-4">The</span>
                     <span class="display-1">Ride or Die Tour</span>
                 </h1>
-                <section class="flex-column my-4">
-                    <div class="flex-row">
-                        <h2 class="next-event-label">Next Stop:</h2>
-                    </div>
-                    <div class="d-flex flex-row column-gap-4 my-4 px-sm-4 justify-content-center">
-                        <div class="d-flex flex-column col col-xl-5 justify-content-center">
-                            <p class="next-event-date display-1">06.17.23</p>
-                        </div>
-                        <div class="d-flex flex-column col col-xl-5 justify-content-around">
-                            <p class="next-event-city h3">City, Region</p>
-                            <p class="next-event-venue h3">Metropolitan Venue Center</p>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-outline-primary btn-lg w-auto mx-auto">Buy Tickets</button>
-                </section>
+                <?= $nextStopHTML ?>
             </div>
         </div>
         <section class="container-lg py-4 theme-bg-dark upcoming-event-dates">

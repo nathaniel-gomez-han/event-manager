@@ -15,12 +15,13 @@
     }
 }
 
-.next-event-info {
-    background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,0.8) 100%);
-
+.next-event-info, .next-event-city, .next-event-venue {
     font-family: "loretta-variable", sans-serif;
     font-variation-settings: "wght" 700;
     color: var(--theme-white);
+}
+.next-event-info {
+    background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,0.8) 100%);
 
     /* Notched corners */
     border-radius: 0 0 1em 1em;
