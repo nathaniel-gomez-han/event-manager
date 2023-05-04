@@ -21,7 +21,7 @@ body {
     background: black;
     color: var(--theme-white);
 }
-h2, .h2 {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     font-family: "gin", serif;
     color: var(--theme-white);
 }
@@ -58,6 +58,7 @@ nav.navbar {
 .btn {
     --bs-btn-font-family: "gin", serif;
     letter-spacing: 1px;
+    white-space: nowrap;
 }
 .btn.btn-outline-primary {
     --bs-btn-bg: rgba(var(--theme-black-rgb), 0.5);
@@ -66,10 +67,10 @@ nav.navbar {
     --bs-btn-border-width: 3px;
     --bs-btn-border-radius: 0;
     --bs-btn-hover-bg: var(--theme-primary);
-    --bs-btn-hover-color: var(--theme-black);
+    --bs-btn-hover-color: black;
     --bs-btn-hover-border-color: var(--theme-white);
     --bs-btn-active-bg: var(--theme-primary);
-    --bs-btn-active-color: var(--theme-white);
+    --bs-btn-active-color: white;
     --bs-btn-active-border-color: var(--theme-primary);
 }
 

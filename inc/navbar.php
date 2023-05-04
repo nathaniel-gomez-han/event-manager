@@ -4,7 +4,7 @@ $root = "/event-manager";
 <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand mb-0" href="index.php">
-                <img src="img/rocktane-logo.svg" alt="Rocktane Logo" class="d-inline-block align-text-bottom">
+                <img src="<?= $root ?>/img/rocktane-logo.svg" alt="Rocktane Logo" class="d-inline-block align-text-bottom">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

@@ -67,13 +67,13 @@ h1.event-title, .next-event-label {
     --bs-btn-font-family: "gin", serif;
     --bs-btn-font-weight: 700;
     --bs-btn-bg: var(--theme-primary);
-    --bs-btn-color: var(--theme-black);
+    --bs-btn-color: black;
     --bs-btn-border-color: var(--theme-primary);
     --bs-btn-border-radius: 0;
     --bs-btn-hover-bg: var(--theme-white);
     --bs-btn-hover-color: var(--theme-black);
     --bs-btn-hover-border-color: var(--theme-white);
     --bs-btn-active-bg: var(--theme-primary);
-    --bs-btn-active-color: var(--theme-white);
+    --bs-btn-active-color: white;
     --bs-btn-active-border-color: var(--theme-primary);
 }
