@@ -13,7 +13,12 @@ require_once(__DIR__ . '/inc/dbConnect.php'); // Creates a connection object cal
 
 $connection = null;
 $statement = null;
-$sql = "SELECT * FROM event";
+$sql = "
+    SELECT `id`, `date`, `venue`, `city`, `region`, `is_sold_out`
+    FROM event
+    WHERE `date` >= CURDATE()
+    ORDER BY `date` ASC
+";
 
 // Execute the query statement
 try {
@@ -62,6 +67,7 @@ if ($row = $statement->fetch()) {
         $venue = $row['venue'];
         $city = $row['city'];
         $region = $row['region'];
+
         $soldOutTagHTML = $row['is_sold_out'] ? '<div class="text-center text-sm-end sold-out-tag">Sold out!</div>' : '';
         $upcomingTourDatesHTML .= <<<END
             <div class="d-flex flex-column flex-sm-row flex-wrap row-gap-3">
