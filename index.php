@@ -44,7 +44,7 @@ if ($row = $statement->fetch()) {
     $region = $row['region'];
 
     $nextStopHTML = <<<END
-        <section class="flex-column my-4">
+        <section class="flex-column mb-3">
             <div class="flex-row">
                 <h2 class="next-event-label">Next Stop:</h2>
             </div>

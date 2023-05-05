@@ -1,18 +1,8 @@
 .splash {
-    background: no-repeat bottom/cover url('../img/splash.gif');
-    min-height: 550px;
+    background: no-repeat bottom/cover url('../img/splash.jpg');
+    min-height: 65vh;
     color: var(--theme-white);
     text-shadow: 2px 2px 4px black;
-}
-@media (min-width: 992px) {
-    .splash {
-        min-height: 620px;
-    }
-}
-@media (min-width: 1200px) {
-    .splash {
-        min-height: 650px;
-    }
 }
 
 .next-event-info, .next-event-city, .next-event-venue {
