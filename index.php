@@ -124,7 +124,7 @@ if ($row = $statement->fetch()) {
     <!-- Page Content -->
     <main class="d-flex flex-column flex-grow-1 container-fluid p-0">
 
-        <section class="splash container-lg pb-4 text-center">
+        <section class="splash container-fluid pb-4 text-center">
             <div class="flex-column next-event-info col-lg-10 mx-auto p-4">
                 <h1 class="event-title mb-4">
                     <span class="event-title-the display-4">The</span>
