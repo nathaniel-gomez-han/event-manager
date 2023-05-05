@@ -18,7 +18,7 @@ $root = "/event-manager";
                         <a class="nav-link <?php if($_SERVER['SCRIPT_NAME'] == "$root/about.php") { ?> active" aria-current="page <?php } ?>" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if($_SERVER['SCRIPT_NAME'] == "$root/tour.php") { ?> active" aria-current="page <?php } ?>" href="#">Tour Dates</a>
+                        <a class="nav-link <?php if($_SERVER['SCRIPT_NAME'] == "$root/tour-dates.php") { ?> active" aria-current="page <?php } ?>" href="tour-dates.php">Tour Dates</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php if($_SERVER['SCRIPT_NAME'] == "$root/contact.php") { ?> active" aria-current="page <?php } ?>" href="#">Contact</a>

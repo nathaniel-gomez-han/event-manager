@@ -16,7 +16,6 @@ $statement = null;
 $sql = "
     SELECT `id`, `date`, `venue`, `city`, `region`, `is_sold_out`
     FROM event
-    WHERE `date` >= CURDATE()
     ORDER BY `date` ASC
 ";
 
@@ -37,31 +36,8 @@ try {
 $nextStopHTML = "";
 $upcomingTourDatesHTML = "";
 
-// If there are upcoming events, generate HTML for the splash and upcoming tour date sections.
+// If there are upcoming events, generate HTML for the list of tour dates.
 if ($row = $statement->fetch()) {
-    $formattedDate = date('M/d/y', strtotime($row['date']));
-    $venue = $row['venue'];
-    $city = $row['city'];
-    $region = $row['region'];
-
-    $nextStopHTML = <<<END
-        <section class="flex-column mb-3">
-            <div class="flex-row">
-                <h2 class="next-event-label">Next Stop:</h2>
-            </div>
-            <div class="d-flex flex-column flex-md-row column-gap-4 my-4 px-md-4 justify-content-center">
-                <div class="d-flex flex-column col-md-6 col-xl-5 justify-content-center">
-                    <p class="next-event-date display-1">$formattedDate</p>
-                </div>
-                <div class="d-flex flex-column col-md-6 col-xl-5 justify-content-around">
-                    <p class="next-event-city h3">$city, $region</p>
-                    <p class="next-event-venue h3">$venue</p>
-                </div>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-lg w-auto mx-auto">Buy Tickets</button>
-        </section>
-    END;
-
     do {
         $formattedDate = strtoupper(date('D, M j, Y', strtotime($row['date'])));
         $venue = $row['venue'];
@@ -122,26 +98,18 @@ if ($row = $statement->fetch()) {
     <?php include 'inc/navbar.php'; ?>
 
     <!-- Page Content -->
-    <main class="d-flex flex-column flex-grow-1 container-fluid p-0">
+    <main class="d-flex flex-column flex-grow-1 container-fluid p-0 theme-bg-dark">
 
-        <section class="splash container-lg pb-4 text-center">
-            <div class="flex-column next-event-info col-lg-10 mx-auto p-4">
-                <h1 class="event-title mb-4">
-                    <span class="event-title-the display-4">The</span>
-                    <span class="display-1">Ride or Die Tour</span>
-                </h1>
-                <?= $nextStopHTML ?>
-            </div>
-        </section>
-        <section class="container-lg py-4 theme-bg-dark upcoming-event-dates">
-            <h2>Upcoming Tour Dates:</h2>
+        <section class="container-lg py-4 text-center upcoming-event-dates">
+            <h1 class="event-title mb-4">
+                <span class="event-title-the display-4">The</span>
+                <span class="display-1">Ride or Die Tour</span>
+            </h1>
             <hr class="header-hr">
             <div class="d-flex flex-column px-4">
                 <?= $upcomingTourDatesHTML ?>
-                <a class="mt-2 align-self-center" href="#"><button type="button" class="btn btn-outline-primary">See All Tour Dates</button></a>
             </div>
         </section>
-
     </main>
 
     <!-- Footer -->
