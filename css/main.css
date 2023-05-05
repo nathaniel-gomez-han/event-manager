@@ -21,9 +21,12 @@ body {
     background: black;
     color: var(--theme-white);
 }
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.display-1, .display-2, .display-3,.display-4, .display-5, .display-6{
     font-family: "gin", serif;
     color: var(--theme-white);
+    text-shadow: 2px 2px 4px black;
 }
 hr {
     border: solid var(--theme-primary) 1px;

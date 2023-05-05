@@ -1,8 +1,6 @@
 .splash {
     background: no-repeat bottom/cover url('../img/splash.jpg');
     min-height: 65vh;
-    color: var(--theme-white);
-    text-shadow: 2px 2px 4px black;
 }
 
 .next-event-info, .next-event-city, .next-event-venue {
