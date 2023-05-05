@@ -138,7 +138,7 @@ if ($row = $statement->fetch()) {
             <hr class="header-hr">
             <div class="d-flex flex-column px-4">
                 <?= $upcomingTourDatesHTML ?>
-                <a class="mt-2 align-self-center" href="#"><button type="button" class="btn btn-outline-primary">See All Tour Dates</button></a>
+                <a class="mt-2 align-self-center" href="tour-dates.php"><button type="button" class="btn btn-outline-primary">See All Tour Dates</button></a>
             </div>
         </section>
 
