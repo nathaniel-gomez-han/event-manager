@@ -40,9 +40,9 @@ $upcomingTourDatesHTML = "";
 // If there are upcoming events, generate HTML for the splash and upcoming tour date sections.
 if ($row = $statement->fetch()) {
     $formattedDate = date('M/d/y', strtotime($row['date']));
-    $venue = $row['venue'];
-    $city = $row['city'];
-    $region = $row['region'];
+    $venue = htmlspecialchars($row['venue']);
+    $city = htmlspecialchars($row['city']);
+    $region = htmlspecialchars($row['region']);
 
     $nextStopHTML = <<<END
         <section class="flex-column mb-3">
@@ -64,9 +64,9 @@ if ($row = $statement->fetch()) {
 
     do {
         $formattedDate = strtoupper(date('D, M j, Y', strtotime($row['date'])));
-        $venue = $row['venue'];
-        $city = $row['city'];
-        $region = $row['region'];
+        $venue = htmlspecialchars($row['venue']);
+        $city = htmlspecialchars($row['city']);
+        $region = htmlspecialchars($row['region']);
 
         $soldOutTagHTML = $row['is_sold_out'] ? '<div class="text-center text-sm-end sold-out-tag">Sold out!</div>' : '';
         $upcomingTourDatesHTML .= <<<END
