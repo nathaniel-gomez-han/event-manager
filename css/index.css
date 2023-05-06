@@ -3,7 +3,7 @@
     min-height: 65vh;
 }
 
-.next-event-info, .next-event-city, .next-event-venue {
+.next-event-info, .next-event-date, .next-event-city, .next-event-venue {
     font-family: "loretta-variable", sans-serif;
     font-variation-settings: "wght" 700;
     color: var(--theme-white);
