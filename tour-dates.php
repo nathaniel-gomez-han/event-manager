@@ -33,8 +33,7 @@ try {
     handleStatementException($e, $statement);
 }
 
-$nextStopHTML = "";
-$upcomingTourDatesHTML = "";
+$tourDatesHTML = "";
 
 // If there are upcoming events, generate HTML for the list of tour dates.
 if ($row = $statement->fetch()) {
@@ -45,7 +44,7 @@ if ($row = $statement->fetch()) {
         $region = htmlspecialchars($row['region']);
 
         $soldOutTagHTML = $row['is_sold_out'] ? '<div class="text-center text-sm-end sold-out-tag">Sold out!</div>' : '';
-        $upcomingTourDatesHTML .= <<<END
+        $tourDatesHTML .= <<<END
             <div class="d-flex flex-column flex-sm-row flex-wrap row-gap-3">
                 <div class="d-flex flex-column col-sm-4 justify-content-center text-center text-sm-start col-event-details">
                     <div>$formattedDate</div>
@@ -65,7 +64,7 @@ if ($row = $statement->fetch()) {
         END;
     } while ($row = $statement->fetch());
 } else {
-    $upcomingTourDatesHTML = <<<END
+    $tourDatesHTML = <<<END
         <div class="d-flex flex-row">
             <div class="mx-auto h3">Coming Soon</div>
         </div>
@@ -91,7 +90,6 @@ if ($row = $statement->fetch()) {
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="https://use.typekit.net/ukm4sma.css"><!-- Adobe Fonts (Gin) -->
         <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/index.css">
     </head>
     <body class="d-flex flex-column min-vh-100">
     <!-- Navbar -->
@@ -107,7 +105,7 @@ if ($row = $statement->fetch()) {
             </h1>
             <hr class="header-hr">
             <div class="d-flex flex-column px-4">
-                <?= $upcomingTourDatesHTML ?>
+                <?= $tourDatesHTML ?>
             </div>
         </section>
     </main>
