@@ -77,6 +77,47 @@ nav.navbar {
     --bs-btn-active-border-color: var(--theme-primary);
 }
 
+/* Tour Dates Display */
+.upcoming-event-dates {
+    font-family: "loretta-variable", sans-serif;
+    font-variation-settings: "wght" 700;
+    color: var(--theme-white);
+}
+.sold-out-tag {
+    color: var(--theme-white);
+    margin-bottom: -0.5em;
+}
+/* Tour Date Link Styling */
+.btn.btn-primary {
+    --bs-btn-font-family: "gin", serif;
+    --bs-btn-font-weight: 700;
+    --bs-btn-bg: var(--theme-primary);
+    --bs-btn-color: black;
+    --bs-btn-border-color: var(--theme-primary);
+    --bs-btn-border-radius: 0;
+    --bs-btn-hover-bg: var(--theme-white);
+    --bs-btn-hover-color: var(--theme-black);
+    --bs-btn-hover-border-color: var(--theme-white);
+    --bs-btn-active-bg: var(--theme-primary);
+    --bs-btn-active-color: white;
+    --bs-btn-active-border-color: var(--theme-primary);
+}
+
+/* Event Title Styling */
+h1.event-title {
+    font-family: "gin", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.event-title span {
+    display: block;
+}
+@media (min-width: 576px) {
+    .event-title-the {
+        margin-bottom: -0.3em !important;
+    }
+}
+
 .theme-bg-dark {
     background: #080808;
 
