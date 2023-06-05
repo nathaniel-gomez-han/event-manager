@@ -6,8 +6,8 @@
     --theme-white-rgb: 249, 249, 249;
     --theme-primary: #DF5050;
     --theme-primary-rgb: 223, 80, 80;
-
-    --bs-border-radius: 0;
+    --theme-black-highlight: #2e2e2e;
+    --theme-black-highlight-rgb: 46, 46, 46;
 }
 
 /* Utility */
@@ -38,14 +38,14 @@ hr.header-hr {
 
 /* Navbar */
 nav.navbar {
-    background: var(--theme-black) !important;
-    background: linear-gradient(10deg, black, var(--theme-black) 40%) !important;
+    background: var(--theme-black);
+    background: linear-gradient(10deg, black, var(--theme-black) 40%);
     border-bottom: solid var(--theme-black) 2px;
 }
 .navbar-brand img {
     height: 30px;
 }
-.nav-link {
+.navbar .nav-link {
     --bs-nav-link-hover-color: var(--theme-primary);
     font-family: "gin", serif;
     letter-spacing: 1px;
@@ -55,6 +55,24 @@ nav.navbar {
 }
 .navbar-toggler:focus {
     box-shadow: 0 0 0 var(--bs-navbar-toggler-focus-width) var(--theme-white);
+}
+
+/* Footer */
+.footer {
+    border-top: solid var(--theme-black) 3px;
+
+    background: var(--theme-black);
+    background: linear-gradient(180deg, black -100%, var(--theme-black) 200%);
+}
+.footer-links a {
+    color: rgba(var(--theme-white-rgb), 0.55);
+}
+.footer-links a:hover {
+    color: var(--theme-primary);
+}
+.footer-copyright {
+    background: var(--theme-black-highlight);
+    color: rgba(var(--theme-white-rgb), 0.55);
 }
 
 /* Button */
