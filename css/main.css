@@ -8,6 +8,8 @@
     --theme-primary-rgb: 223, 80, 80;
     --theme-black-highlight: #2e2e2e;
     --theme-black-highlight-rgb: 46, 46, 46;
+
+    --bs-border-radius: 0; // Navbar toggler
 }
 
 /* Utility */
