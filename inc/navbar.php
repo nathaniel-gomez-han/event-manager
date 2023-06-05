@@ -1,7 +1,7 @@
 <?php
 $root = "/event-manager";
 ?>
-<nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand mb-0" href="index.php">
                 <img src="<?= $root ?>/img/rocktane-logo.svg" alt="Rocktane Logo" class="d-inline-block align-text-bottom">
