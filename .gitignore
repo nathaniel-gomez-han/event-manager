@@ -1,0 +1,5 @@
+error.log
+prepros.config
+img/*.psd
+inc/dbConnect.php
+inc/dbConnect-production.php
