@@ -1,4 +1,6 @@
 <?php
+require_once("inc/base.php");
+
 session_start();
 
 // Authentication
@@ -108,15 +110,18 @@ if (isset($_GET['id'])) {
     <main class="d-flex flex-column flex-grow-1 container-fluid p-0 theme-bg-dark">
 
         <section class="container-lg py-4 text-center upcoming-event-dates">
+
             <h1 class="event-title mb-4">
                 <span class="event-title-the display-4">The</span>
                 <span class="display-1">Ride or Die Tour</span>
             </h1>
-            <hr class="header-hr">
-            <section class="splash container-fluid pb-4 text-center">
-                <div class="flex-column next-event-info col-lg-10 mx-auto p-4">
-                    <?= $nextStopHTML ?>
-                </div>
+            <section class="flex-column pb-4 text-center">
+                <section class="flex-column mb-3">
+                    <p class="next-event-date h3"><?= $formattedDate ?></p>
+                    <p class="next-event-city h3"><?= $city . ", " . $region ?></p>
+                    <p class="next-event-venue h3"><?= $venue ?></p>
+                    <button type="button" class="btn btn-outline-primary btn-lg w-auto mx-auto">Buy Tickets</button>
+                </section>
             </section>
         </section>
     </main>

@@ -1,5 +1,5 @@
 <?php
-$root = "/event-manager";
+require_once("base.php"); // Defines $root
 ?>
 <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
