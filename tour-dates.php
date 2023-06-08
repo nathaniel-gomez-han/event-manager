@@ -44,6 +44,7 @@ if ($row = $statement->fetch()) {
         $venue = htmlspecialchars($row['venue']);
         $city = htmlspecialchars($row['city']);
         $region = htmlspecialchars($row['region']);
+        $infoLink = 'event.php?id=' . $row['id'];
 
         $soldOutTagHTML = $row['is_sold_out'] ? '<div class="text-center text-sm-end sold-out-tag">Sold out!</div>' : '';
         $tourDatesHTML .= <<<END
@@ -57,7 +58,7 @@ if ($row = $statement->fetch()) {
                 </div>
                 <div class="d-flex flex-column col-sm-4 justify-content-center col-event-links">
                     <div class="d-flex flex-column flex-sm-row-reverse column-gap-2 row-gap-1 justify-content-center justify-content-sm-start align-items-center">
-                       <button type="button" class="btn btn-primary btn-sm">More Info</button>
+                       <a href="$infoLink"><button type="button" class="btn btn-primary btn-sm">More Info</button></a>
                        $soldOutTagHTML
                     </div>
                 </div>
