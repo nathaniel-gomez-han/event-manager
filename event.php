@@ -48,6 +48,7 @@ if (isset($_GET['id'])) {
         $city = htmlspecialchars($row['city']);
         $region = htmlspecialchars($row['region']);
         $isSoldOut = $row['is_sold_out'] ? true : false;
+        $isPastDate = (strtotime($row['date']) < time()) ? true : false;
 
         $eventInfoHTML = <<<END
                 <img src="$root/img/rocktane-logo.svg" alt="Rocktane Logo" class="col-11 col-sm-6 col-xl-4 mb-4">
@@ -70,15 +71,22 @@ if (isset($_GET['id'])) {
                     </p>
                 </section>
         END;
-        if (!$isSoldOut) {
+        if ($isPastDate) {
             $eventInfoHTML .= <<<END
-                <button type="button" class="btn btn-outline-primary btn-lg w-auto mx-auto">Buy Tickets</button>
+                <button type="button" class="btn btn-outline-primary disabled btn-lg w-auto mx-auto" disabled>Past Date</button>
             END;
         } else {
-            $eventInfoHTML .= <<<END
-                <button type="button" class="btn btn-outline-primary btn-sold-out btn-lg w-auto mx-auto" disabled>Sold Out</button>
-            END;
+            if ($isSoldOut) {
+                $eventInfoHTML .= <<<END
+                    <button type="button" class="btn btn-outline-primary disabled btn-lg w-auto mx-auto" disabled>Sold Out</button>
+                END;
+            } else {
+                $eventInfoHTML .= <<<END
+                    <button type="button" class="btn btn-outline-primary btn-lg w-auto mx-auto">Buy Tickets</button>
+                END;
+            }
         }
+
     } else {
         $eventInfoHTML = <<<END
             <hr>
