@@ -96,6 +96,11 @@ nav.navbar {
     --bs-btn-active-color: white;
     --bs-btn-active-border-color: var(--theme-primary);
 }
+.btn.btn-sold-out:disabled {
+    border-color: var(--theme-white);
+    background-color: var(--theme-white);
+    color: black;
+}
 
 /* Tour Dates Display */
 .upcoming-event-dates {
