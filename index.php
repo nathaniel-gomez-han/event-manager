@@ -70,6 +70,7 @@ if ($row = $statement->fetch()) {
         $city = htmlspecialchars($row['city']);
         $region = htmlspecialchars($row['region']);
         $infoLink = 'event.php?id=' . $row['id'];
+
         $soldOutTagHTML = $row['is_sold_out'] ? '<div class="text-center text-sm-end sold-out-tag">Sold out!</div>' : '';
         $upcomingTourDatesHTML .= <<<END
             <div class="d-flex flex-column flex-sm-row flex-wrap row-gap-3">
