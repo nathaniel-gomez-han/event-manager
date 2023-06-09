@@ -1,5 +1,5 @@
 <?php
-require_once("base.php"); // Defines $root
+require_once("base.php"); // Defines $isUserValid and $root
 ?>
 <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
@@ -23,6 +23,14 @@ require_once("base.php"); // Defines $root
                     <li class="nav-item">
                         <a class="nav-link <?php if($_SERVER['SCRIPT_NAME'] == "$root/contact.php") { ?> active" aria-current="page <?php } ?>" href="#">Contact</a>
                     </li>
+                <?php if($isUserValid) { ?>
+                    <li class="nav-item">
+                        <a class="nav-link <?php if($_SERVER['SCRIPT_NAME'] == "$root/admin.php") { ?> active" aria-current="page <?php } ?>" href="admin.php">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php if($_SERVER['SCRIPT_NAME'] == "$root/logout.php") { ?> active" aria-current="page <?php } ?>" href="logout.php">Log Out</a>
+                    </li>
+                <?php } ?>
                 </ul>
             </div>
         </div>

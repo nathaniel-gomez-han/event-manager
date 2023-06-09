@@ -1,14 +1,6 @@
 <?php
 require_once("inc/base.php");
 
-session_start();
-
-// Authentication
-$isUserValid = false;
-if (isset($_SESSION['isUserValid'])) {
-    $isUserValid = $_SESSION['isUserValid'];
-}
-
 // Database Connection
 require_once(__DIR__ . '/inc/exceptionHandlers.php');
 require_once(__DIR__ . '/inc/dbConnect.php');

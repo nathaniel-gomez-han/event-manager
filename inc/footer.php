@@ -1,4 +1,6 @@
 <?php
+require_once("inc/base.php"); // Defines $isUserValid
+
 $currentYear = date('Y');
 ?>
 <footer class="footer d-flex flex-column mt-auto">
@@ -16,9 +18,18 @@ $currentYear = date('Y');
         <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
         </li>
+    <?php if($isUserValid) { ?>
         <li class="nav-item">
-            <a class="nav-link" href="index.php">Admin Login</a>
+            <a class="nav-link" href="admin.php">Admin</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="logout.php">Log Out</a>
+        </li>
+    <?php } else { ?>
+        <li class="nav-item">
+            <a class="nav-link" href="admin.php">Admin Login</a>
+        </li>
+    <?php } ?>
     </ul>
 
     <!-- Copyright -->

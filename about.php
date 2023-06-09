@@ -1,15 +1,6 @@
 <?php
 require_once("inc/base.php");
 
-session_start();
-
-// Authentication
-$isUserValid = false;
-if (isset($_SESSION['isUserValid'])) {
-    $isUserValid = $_SESSION['isUserValid'];
-}
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

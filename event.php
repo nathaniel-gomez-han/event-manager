@@ -1,14 +1,6 @@
 <?php
 require_once("inc/base.php"); // Defines $root
 
-session_start();
-
-// Authentication
-$isUserValid = false;
-if (isset($_SESSION['isUserValid'])) {
-    $isUserValid = $_SESSION['isUserValid'];
-}
-
 if (isset($_GET['id'])) {
     $eventId = $_GET['id'];
 
