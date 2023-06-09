@@ -11,7 +11,7 @@ if (isset($_SESSION['isUserValid'])) {
 
 // Database Connection
 require_once(__DIR__ . '/inc/exceptionHandlers.php');
-require_once(__DIR__ . '/inc/dbConnect.php'); // Creates a connection object called $connection.
+require_once(__DIR__ . '/inc/dbConnect.php');
 
 $connection = null;
 $statement = null;
