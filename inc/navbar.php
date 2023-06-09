@@ -15,13 +15,13 @@ require_once("base.php"); // Defines $isUserValid and $root
                         <a class="nav-link <?php if($_SERVER['SCRIPT_NAME'] == "$root/index.php") { ?> active" aria-current="page <?php } ?>" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if($_SERVER['SCRIPT_NAME'] == "$root/about.php") { ?> active" aria-current="page <?php } ?>" href="#">About</a>
+                        <a class="nav-link <?php if($_SERVER['SCRIPT_NAME'] == "$root/about.php") { ?> active" aria-current="page <?php } ?>" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php if($_SERVER['SCRIPT_NAME'] == "$root/tour-dates.php") { ?> active" aria-current="page <?php } ?>" href="tour-dates.php">Tour Dates</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if($_SERVER['SCRIPT_NAME'] == "$root/contact.php") { ?> active" aria-current="page <?php } ?>" href="#">Contact</a>
+                        <a class="nav-link <?php if($_SERVER['SCRIPT_NAME'] == "$root/contact.php") { ?> active" aria-current="page <?php } ?>" href="contact.php">Contact</a>
                     </li>
                 <?php if($isUserValid) { ?>
                     <li class="nav-item">
