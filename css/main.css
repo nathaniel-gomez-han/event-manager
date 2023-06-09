@@ -149,3 +149,7 @@ h1.event-title {
 
     background: radial-gradient(43% 120% at 50% 40%, var(--theme-black), black);
 }
+
+.error {
+    color: #ff4b4b;
+}
