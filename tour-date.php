@@ -40,7 +40,7 @@ if (isset($_GET['id'])) {
         $city = htmlspecialchars($row['city']);
         $region = htmlspecialchars($row['region']);
         $isSoldOut = $row['is_sold_out'] ? true : false;
-        $isPastDate = (strtotime($row['date']) < time()) ? true : false;
+        $isPastDate = ($row['date'] < date('Y-m-d')) ? true : false;
 
         $tourDateInfoHTML = <<<END
                 <img src="$root/img/rocktane-logo.svg" alt="Rocktane Logo" class="col-11 col-sm-6 col-xl-4 mb-4">
