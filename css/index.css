@@ -3,12 +3,12 @@
     min-height: 65vh;
 }
 
-.next-event-info, .next-event-date, .next-event-city, .next-event-venue {
+.next-tour-date-info, .next-tour-date-date, .next-tour-date-city, .next-tour-date-venue {
     font-family: "loretta-variable", sans-serif;
     font-variation-settings: "wght" 700;
     color: var(--theme-white);
 }
-.next-event-info {
+.next-tour-date-info {
     background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,0.8) 100%);
 
     /* Notched corners */
@@ -27,7 +27,7 @@
         );
 }
 
-.next-event-label {
+.next-tour-date-label {
     font-family: "gin", serif;
     font-weight: 400;
     font-style: normal;

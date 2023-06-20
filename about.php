@@ -8,7 +8,6 @@ require_once("inc/base.php");
         <meta charset="UTF-8">
         <!--
             Author: Nathaniel Gomez-Han
-            Date: May 1 2023
         -->
         <meta http-equiv="X-UA-Compatible" content ="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,8 +26,7 @@ require_once("inc/base.php");
 
     <!-- Page Content -->
     <main class="flex-grow-1">
-        <h1>Event Manager</h1>
-        <h2>Upcoming Events:</h2>
+        <h1>About Us</h1>
 
     </main>
 

@@ -104,7 +104,7 @@ nav.navbar {
 }
 
 /* Tour Dates Display */
-.upcoming-event-dates {
+.upcoming-tour-dates {
     font-family: "loretta-variable", sans-serif;
     font-variation-settings: "wght" 700;
     color: var(--theme-white);
@@ -129,17 +129,17 @@ nav.navbar {
     --bs-btn-active-border-color: var(--theme-primary);
 }
 
-/* Event Title Styling */
-h1.event-title {
+/* Tour Title Styling */
+h1.tour-title {
     font-family: "gin", serif;
     font-weight: 400;
     font-style: normal;
 }
-.event-title span {
+.tour-title span {
     display: block;
 }
 @media (min-width: 576px) {
-    .event-title-the {
+    .tour-title-the {
         margin-bottom: -0.3em !important;
     }
 }

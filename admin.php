@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Page Content -->
     <main class="d-flex flex-column flex-grow-1 container-fluid p-0 theme-bg-dark">
-        <section class="container-lg py-4 text-center upcoming-event-dates">
+        <section class="container-lg py-4 text-center upcoming-tour-dates">
 
         <?php
         if ($isUserValid) {
@@ -87,8 +87,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p>Welcome, <?= $_SESSION['username'] ?>.</p>
                 <p>Admin options are available to you:</p>
                 <div class="admin-commands-list d-flex flex-column row-gap-2">
-                    <a href="add-event.php"><button class="btn btn-outline-primary">Add New Event</button></a>
-                    <a href="manage-events.php"><button class="btn btn-outline-primary">Manage All Events</button></a>
+                    <a href="add-tour-date.php"><button class="btn btn-outline-primary">Add New Tour Date</button></a>
+                    <a href="manage-tour-dates.php"><button class="btn btn-outline-primary">Manage All Tour Dates</button></a>
                     <a href="logout.php"><button class="btn btn-outline-primary mt-4">Log Out</button></a>
                 </ul>
             </div>

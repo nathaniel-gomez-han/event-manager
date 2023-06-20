@@ -1,5 +1,5 @@
 <?php
-$root = "/event-manager";
+$root = "/tour-manager";
 
 session_start();
 

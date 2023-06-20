@@ -9,7 +9,7 @@ $connection = null;
 $statement = null;
 $sql = "
     SELECT `id`, `date`, `venue`, `city`, `region`, `is_sold_out`
-    FROM event
+    FROM `tour_date`
     ORDER BY `date` ASC
 ";
 
@@ -29,26 +29,26 @@ try {
 
 $tourDatesHTML = "";
 
-// If there are upcoming events, generate HTML for the list of tour dates.
+// If there are upcoming tour dates, generate HTML for the list of tour dates.
 if ($row = $statement->fetch()) {
     do {
         $formattedDate = strtoupper(date('D, M j, Y', strtotime($row['date'])));
         $venue = htmlspecialchars($row['venue']);
         $city = htmlspecialchars($row['city']);
         $region = htmlspecialchars($row['region']);
-        $infoLink = 'event.php?id=' . $row['id'];
+        $infoLink = 'tour-date.php?id=' . $row['id'];
 
         $soldOutTagHTML = $row['is_sold_out'] ? '<div class="text-center text-sm-end sold-out-tag">Sold out!</div>' : '';
         $tourDatesHTML .= <<<END
             <div class="d-flex flex-column flex-sm-row flex-wrap row-gap-3">
-                <div class="d-flex flex-column col-sm-4 justify-content-center text-center text-sm-start col-event-details">
+                <div class="d-flex flex-column col-sm-4 justify-content-center text-center text-sm-start">
                     <div>$formattedDate</div>
                     <div>$venue</div>
                 </div>
-                <div class="d-flex flex-column col-sm-4 justify-content-center text-center col-event-location">
+                <div class="d-flex flex-column col-sm-4 justify-content-center text-center">
                     <div>$city, $region</div>
                 </div>
-                <div class="d-flex flex-column col-sm-4 justify-content-center col-event-links">
+                <div class="d-flex flex-column col-sm-4 justify-content-center">
                     <div class="d-flex flex-column flex-sm-row-reverse column-gap-2 row-gap-1 justify-content-center justify-content-sm-start align-items-center">
                        <a href="$infoLink"><button type="button" class="btn btn-primary btn-sm">More Info</button></a>
                        $soldOutTagHTML
@@ -93,9 +93,9 @@ if ($row = $statement->fetch()) {
     <!-- Page Content -->
     <main class="d-flex flex-column flex-grow-1 container-fluid p-0 theme-bg-dark">
 
-        <section class="container-lg py-4 text-center upcoming-event-dates">
-            <h1 class="event-title mb-4">
-                <span class="event-title-the display-4">The</span>
+        <section class="container-lg py-4 text-center upcoming-tour-dates">
+            <h1 class="tour-title mb-4">
+                <span class="tour-title-the display-4">The</span>
                 <span class="display-1">Ride or Die Tour</span>
             </h1>
             <hr class="header-hr">
