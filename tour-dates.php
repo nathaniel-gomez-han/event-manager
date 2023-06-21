@@ -1,5 +1,6 @@
 <?php
 require_once("inc/base.php");
+require_once("inc/TourDate.php");
 
 // Database Connection
 require_once(__DIR__ . '/inc/exceptionHandlers.php');
@@ -27,18 +28,31 @@ try {
     handleStatementException($e, $statement);
 }
 
+$tourDates = [];
 $tourDatesHTML = "";
 
 // If there are upcoming tour dates, generate HTML for the list of tour dates.
 if ($row = $statement->fetch()) {
     do {
-        $formattedDate = strtoupper(date('D, M j, Y', strtotime($row['date'])));
-        $venue = htmlspecialchars($row['venue']);
-        $city = htmlspecialchars($row['city']);
-        $region = htmlspecialchars($row['region']);
-        $infoLink = 'tour-date.php?id=' . $row['id'];
+        $tourDates []= new TourDate(
+            $row['id'],
+            $row['date'],
+            $row['venue'],
+            $row['city'],
+            $row['region'],
+            '',
+            $row['is_sold_out'],
+        );
+    } while ($row = $statement->fetch());
 
-        $soldOutTagHTML = $row['is_sold_out'] ? '<div class="text-center text-sm-end sold-out-tag">Sold out!</div>' : '';
+    foreach ($tourDates as $tourDate) {
+        $formattedDate = strtoupper($tourDate->getTourDateDate()->format('D, M j, Y'));
+        $venue = htmlspecialchars($tourDate->getTourDateVenue());
+        $city = htmlspecialchars($tourDate->getTourDateCity());
+        $region = htmlspecialchars($tourDate->getTourDateRegion());
+        $infoLink = 'tour-date.php?id=' . urlencode($tourDate->getTourDateID());
+
+        $soldOutTagHTML = $tourDate->getTourDateIsSoldOut() ? '<div class="text-center text-sm-end sold-out-tag">Sold out!</div>' : '';
         $tourDatesHTML .= <<<END
             <div class="d-flex flex-column flex-sm-row flex-wrap row-gap-3">
                 <div class="d-flex flex-column col-sm-4 justify-content-center text-center text-sm-start">
@@ -57,7 +71,7 @@ if ($row = $statement->fetch()) {
             </div>
             <hr>
         END;
-    } while ($row = $statement->fetch());
+    }
 } else {
     $tourDatesHTML = <<<END
         <div class="d-flex flex-row">
