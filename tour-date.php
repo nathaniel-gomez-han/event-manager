@@ -1,5 +1,6 @@
 <?php
 require_once("inc/base.php"); // Defines $root
+require_once("inc/TourDate.php");
 
 if (isset($_GET['id'])) {
     $tourDateId = $_GET['id'];
@@ -35,12 +36,25 @@ if (isset($_GET['id'])) {
 
     // If there are upcoming tourDates, generate HTML for the list of tour dates.
     if ($row = $statement->fetch()) {
-        $formattedDate = date('M/d/y', strtotime($row['date']));
-        $venue = htmlspecialchars($row['venue']);
-        $city = htmlspecialchars($row['city']);
-        $region = htmlspecialchars($row['region']);
-        $isSoldOut = $row['is_sold_out'] ? true : false;
-        $isPastDate = ($row['date'] < date('Y-m-d')) ? true : false;
+        $tourDate = new TourDate(
+            $row['id'],
+            $row['date'],
+            $row['venue'],
+            $row['city'],
+            $row['region'],
+            '',
+            $row['is_sold_out'],
+        );
+
+        $formattedDate = $tourDate->getTourDateDate()->format('M/d/y');
+        $venue = htmlspecialchars($tourDate->getTourDateVenue());
+        $city = htmlspecialchars($tourDate->getTourDateCity());
+        $region = htmlspecialchars($tourDate->getTourDateRegion());
+        $isSoldOut = $tourDate->getTourDateIsSoldOut() ? true : false;
+        $isPastDate = ($tourDate->getTourDateDate() < new DateTime()) ? true : false;
+        var_dump($tourDate->getTourDateDate());
+        var_dump("");
+        var_dump(new DateTime());
 
         $tourDateInfoHTML = <<<END
                 <img src="$root/img/rocktane-logo.svg" alt="Rocktane Logo" class="col-11 col-sm-6 col-xl-4 mb-4">
