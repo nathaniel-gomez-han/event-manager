@@ -51,10 +51,7 @@ if (isset($_GET['id'])) {
         $city = htmlspecialchars($tourDate->getTourDateCity());
         $region = htmlspecialchars($tourDate->getTourDateRegion());
         $isSoldOut = $tourDate->getTourDateIsSoldOut() ? true : false;
-        $isPastDate = ($tourDate->getTourDateDate() < new DateTime()) ? true : false;
-        var_dump($tourDate->getTourDateDate());
-        var_dump("");
-        var_dump(new DateTime());
+        $isPastDate = ($tourDate->getTourDateDate() < new DateTime('midnight')) ? true : false;
 
         $tourDateInfoHTML = <<<END
                 <img src="$root/img/rocktane-logo.svg" alt="Rocktane Logo" class="col-11 col-sm-6 col-xl-4 mb-4">
