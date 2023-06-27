@@ -1,81 +1,81 @@
 <?php 
 class TourDate implements \JsonSerializable {
-    private $tourDateID;
-    private $tourDateDate;
-    private $tourDateVenue;
-    private $tourDateCity;
-    private $tourDateRegion;
-    private $tourDateTicketLink;
-    private $tourDateIsSoldOut;
+    private $id;
+    private $showStartDateTime;
+    private $venue;
+    private $city;
+    private $region;
+    private $ticketLink;
+    private $isSoldOut;
 
-    function __construct($inID, $inDate, $inVenue, $inCity, $inRegion, $inTicketLink, $inIsSoldOut) {
-        $this->setTourDateID($inID);
-        $this->setTourDateDate($inDate);
-        $this->setTourDateVenue($inVenue);
-        $this->setTourDateCity($inCity);
-        $this->setTourDateRegion($inRegion);
-        $this->setTourDateTicketLink($inTicketLink);
-        $this->setTourDateIsSoldOut($inIsSoldOut);
+    function __construct($inID, $inShowStartDateTime, $inVenue, $inCity, $inRegion, $inTicketLink, $inIsSoldOut) {
+        $this->setID($inID);
+        $this->setShowStartDateTime($inShowStartDateTime);
+        $this->setVenue($inVenue);
+        $this->setCity($inCity);
+        $this->setRegion($inRegion);
+        $this->setTicketLink($inTicketLink);
+        $this->setIsSoldOut($inIsSoldOut);
     }
 
-    private function setTourDateID($inID) {
-        $this->tourDateID = $inID;
+    private function setID($inID) {
+        $this->id = $inID;
     }
 
-    function getTourDateID() {
-        return $this->tourDateID;
+    function getID() {
+        return $this->id;
     }
 
-    function setTourDateDate($inDate) {
-        if(is_a($inDate, "DateTime")) {
-            $this->tourDateDate = $inDate;
+    function setShowStartDateTime($inShowStartDateTime) {
+        if(is_a($inShowStartDateTime, "DateTime")) {
+            $this->showStartDateTime = $inShowStartDateTime;
         } else {
-            $this->tourDateDate = new DateTime($inDate);
+            $this->showStartDateTime = new DateTime($inShowStartDateTime);
         }
     }
 
-    function getTourDateDate() {
-        return $this->tourDateDate;
+    function getShowStartDateTime() {
+        return $this->showStartDateTime;
     }
 
-    function setTourDateVenue($inVenue) {
-        $this->tourDateVenue = $inVenue;
+    function setVenue($inVenue) {
+        $this->venue = $inVenue;
     }
 
-    function getTourDateVenue() {
-        return $this->tourDateVenue;
+    function getVenue() {
+        return $this->venue;
     }
 
-    function setTourDateCity($inCity) {
-        $this->tourDateCity = $inCity;
+    function setCity($inCity) {
+        $this->city = $inCity;
     }
 
-    function getTourDateCity() {
-        return $this->tourDateCity;
+    function getCity() {
+        return $this->city;
     }
 
-    function setTourDateRegion($inRegion) {
-        $this->tourDateRegion = $inRegion;
+    function setRegion($inRegion) {
+        $this->region = $inRegion;
     }
 
-    function getTourDateRegion() {
-        return $this->tourDateRegion;
+    function getRegion() {
+        return $this->region;
     }
 
-    function setTourDateTicketLink($inTicketLink) {
-        $this->tourDateTicketLink = $inTicketLink;
+    function setTicketLink($inTicketLink) {
+        $this->ticketLink = $inTicketLink;
     }
 
-    function getTourDateTicketLink() {
-        return $this->tourDateTicketLink;
+    function getTicketLink() {
+        return $this->ticketLink;
     }
 
-    function setTourDateIsSoldOut($inIsSoldOut) {
-        $this->tourDateIsSoldOut = $inIsSoldOut;
+    function setIsSoldOut($inIsSoldOut) {
+        $this->isSoldOut = $inIsSoldOut;
     }
 
-    function getTourDateIsSoldOut() {
-        return $this->tourDateIsSoldOut;
+    function getIsSoldOut() {
+        return $this->isSoldOut;
     }
 
     function jsonSerialize(): mixed {

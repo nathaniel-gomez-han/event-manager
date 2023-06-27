@@ -9,10 +9,10 @@ require_once(__DIR__ . '/inc/dbConnect.php');
 $connection = null;
 $statement = null;
 $sql = "
-    SELECT `id`, `date`, `venue`, `city`, `region`, `is_sold_out`
+    SELECT `id`, `show_starts_at`, `venue`, `city`, `region`, `is_sold_out`
     FROM `tour_date`
-    WHERE `date` >= CURDATE()
-    ORDER BY `date` ASC
+    WHERE `show_starts_at` >= CURDATE()
+    ORDER BY `show_starts_at` ASC
 ";
 
 // Execute the query statement
@@ -38,7 +38,7 @@ if ($row = $statement->fetch()) {
     do {
         $tourDates []= new TourDate(
             $row['id'],
-            $row['date'],
+            $row['show_starts_at'],
             $row['venue'],
             $row['city'],
             $row['region'],
@@ -47,11 +47,10 @@ if ($row = $statement->fetch()) {
         );
     } while ($row = $statement->fetch());
 
-
-    $formattedDate = $tourDates[0]->getTourDateDate()->format('M/d/y');
-    $venue = htmlspecialchars($tourDates[0]->getTourDateVenue());
-    $city = htmlspecialchars($tourDates[0]->getTourDateCity());
-    $region = htmlspecialchars($tourDates[0]->getTourDateRegion());
+    $formattedDate = $tourDates[0]->getShowStartDateTime()->format('M/d/y');
+    $venue = htmlspecialchars($tourDates[0]->getVenue());
+    $city = htmlspecialchars($tourDates[0]->getCity());
+    $region = htmlspecialchars($tourDates[0]->getRegion());
 
     $nextStopHTML = <<<END
         <section class="flex-column mb-3">
@@ -72,12 +71,12 @@ if ($row = $statement->fetch()) {
     END;
 
     foreach ($tourDates as $tourDate) {
-        $formattedDate = strtoupper($tourDate->getTourDateDate()->format('D, M j, Y'));
-        $venue = htmlspecialchars($tourDate->getTourDateVenue());
-        $city = htmlspecialchars($tourDate->getTourDateCity());
-        $region = htmlspecialchars($tourDate->getTourDateRegion());
-        $infoLink = 'tour-date.php?id=' . urlencode($tourDate->getTourDateID());
-        $soldOutTagHTML = $tourDate->getTourDateIsSoldOut() ? '<div class="text-center text-sm-end sold-out-tag">Sold out!</div>' : '';
+        $formattedDate = strtoupper($tourDate->getShowStartDateTime()->format('D, M j, Y'));
+        $venue = htmlspecialchars($tourDate->getVenue());
+        $city = htmlspecialchars($tourDate->getCity());
+        $region = htmlspecialchars($tourDate->getRegion());
+        $infoLink = 'tour-date.php?id=' . urlencode($tourDate->getID());
+        $soldOutTagHTML = $tourDate->getIsSoldOut() ? '<div class="text-center text-sm-end sold-out-tag">Sold out!</div>' : '';
 
         $upcomingTourDatesHTML .= <<<END
             <div class="d-flex flex-column flex-sm-row flex-wrap row-gap-3">

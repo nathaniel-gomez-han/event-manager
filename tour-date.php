@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
     $connection = null;
     $statement = null;
     $sql = "
-        SELECT `id`, `date`, `venue`, `city`, `region`, `is_sold_out`
+        SELECT `id`, `show_starts_at`, `venue`, `city`, `region`, `is_sold_out`
         FROM `tour_date`
         WHERE `id` = :tourDateId
     ";
@@ -38,7 +38,7 @@ if (isset($_GET['id'])) {
     if ($row = $statement->fetch()) {
         $tourDate = new TourDate(
             $row['id'],
-            $row['date'],
+            $row['show_starts_at'],
             $row['venue'],
             $row['city'],
             $row['region'],
@@ -46,12 +46,12 @@ if (isset($_GET['id'])) {
             $row['is_sold_out'],
         );
 
-        $formattedDate = $tourDate->getTourDateDate()->format('M/d/y');
-        $venue = htmlspecialchars($tourDate->getTourDateVenue());
-        $city = htmlspecialchars($tourDate->getTourDateCity());
-        $region = htmlspecialchars($tourDate->getTourDateRegion());
-        $isSoldOut = $tourDate->getTourDateIsSoldOut() ? true : false;
-        $isPastDate = ($tourDate->getTourDateDate() < new DateTime('midnight')) ? true : false;
+        $formattedDate = $tourDate->getShowStartDateTime()->format('M/d/y');
+        $venue = htmlspecialchars($tourDate->getVenue());
+        $city = htmlspecialchars($tourDate->getCity());
+        $region = htmlspecialchars($tourDate->getRegion());
+        $isSoldOut = $tourDate->getIsSoldOut() ? true : false;
+        $isPastDate = ($tourDate->getShowStartDateTime() < new DateTime()) ? true : false;
 
         $tourDateInfoHTML = <<<END
                 <img src="$root/img/rocktane-logo.svg" alt="Rocktane Logo" class="col-11 col-sm-6 col-xl-4 mb-4">

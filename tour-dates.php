@@ -9,9 +9,9 @@ require_once(__DIR__ . '/inc/dbConnect.php');
 $connection = null;
 $statement = null;
 $sql = "
-    SELECT `id`, `date`, `venue`, `city`, `region`, `is_sold_out`
+    SELECT `id`, `show_starts_at`, `venue`, `city`, `region`, `is_sold_out`
     FROM `tour_date`
-    ORDER BY `date` ASC
+    ORDER BY `show_starts_at` ASC
 ";
 
 // Execute the query statement
@@ -36,7 +36,7 @@ if ($row = $statement->fetch()) {
     do {
         $tourDates []= new TourDate(
             $row['id'],
-            $row['date'],
+            $row['show_starts_at'],
             $row['venue'],
             $row['city'],
             $row['region'],
@@ -46,13 +46,13 @@ if ($row = $statement->fetch()) {
     } while ($row = $statement->fetch());
 
     foreach ($tourDates as $tourDate) {
-        $formattedDate = strtoupper($tourDate->getTourDateDate()->format('D, M j, Y'));
-        $venue = htmlspecialchars($tourDate->getTourDateVenue());
-        $city = htmlspecialchars($tourDate->getTourDateCity());
-        $region = htmlspecialchars($tourDate->getTourDateRegion());
-        $infoLink = 'tour-date.php?id=' . urlencode($tourDate->getTourDateID());
+        $formattedDate = strtoupper($tourDate->getShowStartDateTime()->format('D, M j, Y'));
+        $venue = htmlspecialchars($tourDate->getVenue());
+        $city = htmlspecialchars($tourDate->getCity());
+        $region = htmlspecialchars($tourDate->getRegion());
+        $infoLink = 'tour-date.php?id=' . urlencode($tourDate->getID());
 
-        $soldOutTagHTML = $tourDate->getTourDateIsSoldOut() ? '<div class="text-center text-sm-end sold-out-tag">Sold out!</div>' : '';
+        $soldOutTagHTML = $tourDate->getIsSoldOut() ? '<div class="text-center text-sm-end sold-out-tag">Sold out!</div>' : '';
         $tourDatesHTML .= <<<END
             <div class="d-flex flex-column flex-sm-row flex-wrap row-gap-3">
                 <div class="d-flex flex-column col-sm-4 justify-content-center text-center text-sm-start">
