@@ -47,11 +47,11 @@ if (isset($_GET['id'])) {
         );
 
         $formattedDate = $tourDate->getShowStartDateTime()->format('M/d/y');
+        $formattedTime = $tourDate->getShowStartDateTime()->format('g:iA');
         $venue = htmlspecialchars($tourDate->getVenue());
         $city = htmlspecialchars($tourDate->getCity());
         $region = htmlspecialchars($tourDate->getRegion());
         $isSoldOut = $tourDate->getIsSoldOut() ? true : false;
-        $isPastDate = ($tourDate->getShowStartDateTime() < new DateTime()) ? true : false;
 
         $tourDateInfoHTML = <<<END
                 <img src="$root/img/rocktane-logo.svg" alt="Rocktane Logo" class="col-11 col-sm-6 col-xl-4 mb-4">
@@ -61,7 +61,8 @@ if (isset($_GET['id'])) {
                 </h1>
                 <section class="flex-column mb-4 text-center">
                     <p>
-                        <h2 class="h4">DATE:</h2>
+                        <h2 class="h4">TIME:</h2>
+                        <span class="h3">$formattedTime</span>
                         <span class="h3">$formattedDate</span>
                     </p>
                     <p>
@@ -74,20 +75,14 @@ if (isset($_GET['id'])) {
                     </p>
                 </section>
         END;
-        if ($isPastDate) {
+        if ($isSoldOut) {
             $tourDateInfoHTML .= <<<END
-                <button type="button" class="btn btn-outline-primary disabled btn-lg w-auto mx-auto" disabled>Past Date</button>
+                <button type="button" class="btn btn-outline-primary disabled btn-lg w-auto mx-auto" disabled>Sold Out</button>
             END;
         } else {
-            if ($isSoldOut) {
-                $tourDateInfoHTML .= <<<END
-                    <button type="button" class="btn btn-outline-primary disabled btn-lg w-auto mx-auto" disabled>Sold Out</button>
-                END;
-            } else {
-                $tourDateInfoHTML .= <<<END
-                    <button type="button" class="btn btn-outline-primary btn-lg w-auto mx-auto">Buy Tickets</button>
-                END;
-            }
+            $tourDateInfoHTML .= <<<END
+                <button type="button" class="btn btn-outline-primary btn-lg w-auto mx-auto">Buy Tickets</button>
+            END;
         }
 
     } else {
