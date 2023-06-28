@@ -48,6 +48,8 @@ if ($row = $statement->fetch()) {
     } while ($row = $statement->fetch());
 
     $formattedDate = $tourDates[0]->getShowStartDateTime()->format('M/d/y');
+    $formattedTime = $tourDates[0]->getShowStartDateTime()->format('g:i');
+    $formattedMeridiem = $tourDates[0]->getShowStartDateTime()->format('A');
     $venue = htmlspecialchars($tourDates[0]->getVenue());
     $city = htmlspecialchars($tourDates[0]->getCity());
     $region = htmlspecialchars($tourDates[0]->getRegion());
@@ -59,11 +61,12 @@ if ($row = $statement->fetch()) {
             </div>
             <div class="d-flex flex-column flex-md-row column-gap-4 my-4 px-md-4 justify-content-center">
                 <div class="d-flex flex-column col-md-6 col-xl-5 justify-content-center">
-                    <p class="next-tour-date-date display-1">$formattedDate</p>
+                    <p class="next-tour-date-info display-3">$formattedTime <span class="next-tour-date-info display-6">$formattedMeridiem</span></p>
+                    <p class="next-tour-date-info display-1">$formattedDate</p>
                 </div>
-                <div class="d-flex flex-column col-md-6 col-xl-5 justify-content-around">
-                    <p class="next-tour-date-city h3">$city, $region</p>
-                    <p class="next-tour-date-venue h3">$venue</p>
+                <div class="d-flex flex-column col-md-6 col-xl-5 justify-content-center row-gap-3">
+                    <p class="next-tour-date-info h2">$venue</p>
+                    <p class="next-tour-date-info h2">$city, $region</p>
                 </div>
             </div>
             <button type="button" class="btn btn-outline-primary btn-lg w-auto mx-auto">Buy Tickets</button>
@@ -134,7 +137,7 @@ if ($row = $statement->fetch()) {
     <main class="d-flex flex-column flex-grow-1 container-fluid p-0">
 
         <section class="splash container-fluid pb-4 text-center">
-            <div class="flex-column next-tour-date-info col-lg-10 mx-auto p-4">
+            <div class="flex-column next-tour-date-overlay col-lg-10 mx-auto p-4">
                 <h1 class="tour-title mb-4">
                     <span class="tour-title-the display-4">The</span>
                     <span class="display-1">Ride or Die Tour</span>

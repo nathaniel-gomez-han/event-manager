@@ -3,12 +3,12 @@
     min-height: 65vh;
 }
 
-.next-tour-date-info, .next-tour-date-date, .next-tour-date-city, .next-tour-date-venue {
+.next-tour-date-info {
     font-family: "loretta-variable", sans-serif;
     font-variation-settings: "wght" 700;
     color: var(--theme-white);
 }
-.next-tour-date-info {
+.next-tour-date-overlay {
     background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,0.8) 100%);
 
     /* Notched corners */
