@@ -11,7 +11,7 @@ $statement = null;
 $sql = "
     SELECT `id`, `show_starts_at`, `venue`, `city`, `region`, `is_sold_out`
     FROM `tour_date`
-    WHERE `show_starts_at` >= CURDATE()
+    WHERE `show_starts_at` >= UTC_DATE()
     ORDER BY `show_starts_at` ASC
 ";
 
